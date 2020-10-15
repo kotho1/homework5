@@ -235,8 +235,8 @@ header{
 @media screen and (prefers-reduced-motion: reduce){
   #logo{
     /*Your code here.*/
-   -webkit-transition: none;
-           transition: none;
+   -webkit-animation: none;
+           animation: none;
  
  }
 }
