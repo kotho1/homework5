@@ -28,7 +28,6 @@ a.skip{
   padding: 6px;
   position: absolute;
   top: -40px;
-  -webkit-transition: top 1s ease-out;
   transition: top 1s ease-out;
   z-index: 1;
 }
@@ -36,7 +35,8 @@ a.skip{
 a.skip:focus{
   top:20px;
   color: black;
-  text-decoration-style: solid;
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
 }
 
 *:focus{
@@ -55,17 +55,21 @@ footer{
 
 @-webkit-keyframes logo_wiggle{
   /*Your code here.*/
-
+  0%   {width: 25px;}
+  100% {width: 420px;}
 }
 
 @keyframes logo_wiggle{
   /*Your code here.*/
-
+  0%   {width: 25px;}
+  100% {width: 420px;}
 } 
 
 #logo{
    /*Your code here.*/
- 
+  -webkit-animation: logo_wiggle 15s;
+          animation: logo_wiggle 15s;
+
 }
 
 /* Cards! */
@@ -73,7 +77,10 @@ footer{
     min-height: 500px;
     /*Your code here.*/
     /*Don't forget to vertically and horizontally alight the card*/
-  
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
@@ -83,7 +90,7 @@ footer{
   padding: 0 0 50px 0;
   /*Your code here.*/
   /*Take a look at flex-basis*/
-
+  flex-basis: 400px;
 }
 
 .card > header{
@@ -121,14 +128,16 @@ footer{
 }
 
 .card_big{
-  -webkit-transform: initial;
-          transform: initial;
+  transform: initial;
 }
 
 /* Gallery! */
 .gallery{
   min-height: 600px;
   /*Your code here again.*/
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .gallery > img{
@@ -142,10 +151,17 @@ header{
   background: #fff;
   border-bottom: 3px solid #50C7C7;
   /*Your  code here again.*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav_links{
   /*Your code here again.*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav_item a{
@@ -165,20 +181,24 @@ header{
   /* Cards! */
   .card {
     /*Your  code here again.*/
+    flex-basis: 225px;
   }
 
   .card_big{
-    -webkit-transform: scaleX(1.12);
-            transform: scaleX(1.12);
+    transform: scaleX(1.12);
   }
 
   /* Navbar */
   header{
-    /*Your code here again.*/  
+    /*Your code here again.*/
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .nav_links{
-    /*Your code here again.*/  
+    /*Your code here again.*/
+    flex-direction: row; 
+    
   }
 
   .nav_item a{
@@ -192,7 +212,31 @@ header{
   }
   /*Your code here again.*/
   /*You will want four selectors*/  
+
+  body {
+    background-image: none;
+  }
+
+  .pricing {
+    align-items: flex-start;
+  }
+
+  .gallery {
+    display: none;
+  }
+
+  #gallery {
+    display: none;
+  }
 }
 
 /*Your code here again.*/ 
 /*Add media query to handle reduced-motion*/
+@media screen and (prefers-reduced-motion: reduce){
+  #logo{
+    /*Your code here.*/
+   -webkit-transition: none;
+           transition: none;
+ 
+ }
+}
